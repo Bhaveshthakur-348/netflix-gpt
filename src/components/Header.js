@@ -24,7 +24,7 @@ const Header = () => {
 
   useEffect(() => {
     // take this api from firebase doc manage users 
-    onAuthStateChanged(auth, (user) => {
+    const unSubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const {uid, email, displayName, photoURL} = user.uid;
         dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}))
@@ -35,6 +35,9 @@ const Header = () => {
         navigate('/')
       }
     });
+
+    // unsubscribing when component unmount 
+    return () => unSubscribe();
   }, [])
 
   return (
