@@ -1,8 +1,12 @@
 import { useEffect } from "react";
 import Header from "./Header"
 import { API_OPTIONS } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addNowPlayingMovies } from "../utils/moviesSlice"
 
 const Browse = () => {
+
+  const dispatch = useDispatch();
 
   const getNowPlatingMovies = async () => {
     const data = await fetch(
@@ -10,7 +14,8 @@ const Browse = () => {
       API_OPTIONS
     )
     const json = await data.json();
-    console.log("data", json);
+    console.log("data", json.results);
+    dispatch(addNowPlayingMovies(json.results))
 
   }
 
