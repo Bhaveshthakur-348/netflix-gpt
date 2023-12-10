@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth"
-import { LOGO } from "../utils/constants"
+import { LOGO, USER_AVATAR } from "../utils/constants"
 import { auth } from "../utils/firebase"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
@@ -46,8 +46,8 @@ const Header = () => {
 
         {user && (
           <div className="flex p-2">
-          {/* <img className="w-12 h-12" alt="usericon" src="https://external-preview.redd.it/0dTT-3SprPcsNCqo1GTCI-nqGM9EdZYwqyYr_pZ-baE.jpg?auto=webp&s=a1e8532d326f5aa122df2f31694bf142f117fc06" /> */}
-          <img className="w-12 h-12" alt="usericon"  src={user?.photoURL} />
+          <img className="w-12 h-12" alt="usericon" src={USER_AVATAR} />
+          {/* <img className="w-12 h-12" alt="usericon"  src={user?.photoURL} /> */}
           <button onClick={handleSignOut} className="font-bold text-white">SignOut</button>
       </div>
         )}
