@@ -1,0 +1,16 @@
+
+.custom-scrollbar {
+    overflow-x: scroll;
+    scrollbar-width: thin; 
+    scrollbar-color: transparent transparent; 
+  
+
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+}
+  
